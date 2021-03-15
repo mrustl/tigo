@@ -1,0 +1,13 @@
+^LICENSE\.md$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
+^codecov\.yml$
+^index\.md$
+^README\.md$
+^tigo\.Rproj$
+^\.Rhistory$
+^\.RData$
+^\.Rproj\.user$
+^\.here$
