@@ -94,6 +94,8 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">#remotes::install_github("mrustl/tigo")</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mrustl/tigo">tigo</a></span><span class="op">)</span>
+
 <span class="va">tigo_data</span> <span class="op">&lt;-</span> <span class="fu">tigo</span><span class="fu">::</span><span class="fu"><a href="../reference/get_data_aggregate.html">get_data_aggregate</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; No encoding supplied: defaulting to UTF-8.</span>
 <span class="co">#&gt; </span>
@@ -132,20 +134,58 @@
 <span class="co">#&gt; Warning: Expected 2 pieces. Missing pieces filled with `NA` in 85302 rows [1, 2,</span>
 <span class="co">#&gt; 3, 4, 6, 8, 9, 12, 13, 16, 19, 20, 58, 59, 60, 61, 62, 63, 64, 65, ...].</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">tigo_data</span><span class="op">)</span>
-<span class="co">#&gt; Classes 'data.table' and 'data.frame':   1194228 obs. of  7 variables:</span>
+<span class="co">#&gt; Classes 'data.table' and 'data.frame':   1194228 obs. of  9 variables:</span>
 <span class="co">#&gt;  $ param      : chr  "Pin" "Pin" "Pin" "Pin" ...</span>
-<span class="co">#&gt;  $ DATETIME   : POSIXct, format: "2021-03-09 10:48:00" "2021-03-09 10:48:00" ...</span>
+<span class="co">#&gt;  $ DATETIME   : POSIXct, format: "2021-03-09 11:41:00" "2021-03-09 11:41:00" ...</span>
 <span class="co">#&gt;  $ cca_mac    : chr  "04C05B900AF2" "04C05B900AF2" "04C05B900AF2" "04C05B900AF2" ...</span>
 <span class="co">#&gt;  $ type       : chr  "panels" "panels" "panels" "panels" ...</span>
 <span class="co">#&gt;  $ id         : chr  "A1" "A2" "A3" "A4" ...</span>
 <span class="co">#&gt;  $ paramheader: chr  NA NA NA NA ...</span>
-<span class="co">#&gt;  $ value      : num  NA NA NA NA 0 NA 0 NA NA 0 ...</span>
+<span class="co">#&gt;  $ value      : num  NA NA NA NA NA NA NA NA NA 0 ...</span>
+<span class="co">#&gt;  $ string     : chr  "A" "A" "A" "A" ...</span>
+<span class="co">#&gt;  $ position   : chr  "1" "2" "3" "4" ...</span>
 <span class="co">#&gt;  - attr(*, ".internal.selfref")=&lt;externalptr&gt;</span></code></pre></div>
+<div id="p_in" class="section level2">
+<h2 class="hasAnchor">
+<a href="#p_in" class="anchor"></a>P_in</h2>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">interactive</span> <span class="op">&lt;-</span> <span class="cn">FALSE</span>
+
+<span class="fu">tigo</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_data.html">plot_data</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">tigo_data</span>, param <span class="op">=</span> <span class="st">"Pin"</span>, <span class="va">interactive</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 44800 row(s) containing missing values (geom_path).</span></code></pre></div>
+<p><img src="analysis_files/figure-html/plot_pin-1.png" width="700"></p>
+</div>
+<div id="v_in" class="section level2">
+<h2 class="hasAnchor">
+<a href="#v_in" class="anchor"></a>V_in</h2>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">tigo</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_data.html">plot_data</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">tigo_data</span>, param <span class="op">=</span> <span class="st">"Vin"</span>, <span class="va">interactive</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 44800 row(s) containing missing values (geom_path).</span></code></pre></div>
+<p><img src="analysis_files/figure-html/plot_vin-1.png" width="700"></p>
+</div>
+<div id="i_in" class="section level2">
+<h2 class="hasAnchor">
+<a href="#i_in" class="anchor"></a>I_in</h2>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">tigo</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_data.html">plot_data</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">tigo_data</span>, param <span class="op">=</span> <span class="st">"Iin"</span>, <span class="va">interactive</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 44800 row(s) containing missing values (geom_path).</span></code></pre></div>
+<p><img src="analysis_files/figure-html/plot_iin-1.png" width="700"></p>
+</div>
+<div id="rssi" class="section level2">
+<h2 class="hasAnchor">
+<a href="#rssi" class="anchor"></a>RSSI</h2>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">tigo</span><span class="fu">::</span><span class="fu"><a href="../reference/plot_data.html">plot_data</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">tigo_data</span>, param <span class="op">=</span> <span class="st">"RSSI"</span>, <span class="va">interactive</span><span class="op">)</span>
+<span class="co">#&gt; Warning: Removed 44800 row(s) containing missing values (geom_path).</span></code></pre></div>
+<p><img src="analysis_files/figure-html/plot_rssi-1.png" width="700"></p>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 
