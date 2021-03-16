@@ -20,7 +20,8 @@ Imports:
     httr,
     kwb.utils,
     magrittr,
-    stringr
+    stringr,
+    tidyselect
 Suggests: 
     covr
 Remotes: 

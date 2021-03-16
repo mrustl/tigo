@@ -8,17 +8,20 @@
 #' @param sensors Whether to include sensor data TRUE/FALSE (default: TRUE)
 #' @param params Type of data to return (default: c("Pin", "Vin", "Iin", "RSSI"))
 #' @param header either "id" or "key" header (default: "key")
+#' @param tz time zone of system (default: "")
 #' @return list with data
 #' @export
 #' @importFrom stringr str_to_lower
-#' @importFrom dplyr filter
+#' @importFrom dplyr across filter mutate
+#' @import tidyselect
 get_data_aggregate <- function(system_id,
                                datetime_min = Sys.time() - 7*24*3600,
                                datetime_max = Sys.time(),
                                level = "min",
                                sensors = TRUE,
                                params = c("Pin", "Vin", "Iin", "RSSI"),
-                               header = "key") {
+                               header = "key",
+                               tz = "") {
 
 
 
@@ -35,6 +38,9 @@ get_data_aggregate <- function(system_id,
                         param,
                         header)
     tigo_oauth(endpoint) %>%
-      dplyr::filter(DATETIME != "DATETIME")})
+      dplyr::filter(DATETIME != "DATETIME") %>%
+      dplyr::mutate(DATETIME = as.POSIXct(DATETIME, tz = tz)) %>%
+      dplyr::mutate(dplyr::across(tidyselect:::where(is.character), function(x){as.numeric(x)}))
+  })
 
 }

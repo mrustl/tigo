@@ -11,7 +11,8 @@ get_data_aggregate(
   level = "min",
   sensors = TRUE,
   params = c("Pin", "Vin", "Iin", "RSSI"),
-  header = "key"
+  header = "key",
+  tz = ""
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ get_data_aggregate(
 \item{params}{Type of data to return (default: c("Pin", "Vin", "Iin", "RSSI"))}
 
 \item{header}{either "id" or "key" header (default: "key")}
+
+\item{tz}{time zone of system (default: "")}
 }
 \value{
 list with data
