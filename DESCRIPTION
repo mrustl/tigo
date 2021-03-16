@@ -18,9 +18,11 @@ BugReports: https://github.com/mrustl/tigo/issues
 Imports: 
     data.table,
     dplyr,
+    ggplot2,
     httr,
     kwb.utils,
     magrittr,
+    plotly,
     readr,
     rlang,
     stringr,
