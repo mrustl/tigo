@@ -18,18 +18,17 @@ knitr::opts_chunk$set(
 #remotes::install_github("mrustl/tigo")
 library(tigo)
 
-tigo_data <- tigo::get_data_aggregate()
+datetime_min <- as.POSIXct("2021-03-15 14:30:00 CET")
+tigo_data <- tigo::get_data_aggregate(datetime_min = datetime_min) 
 str(tigo_data)
 
-
+interactive <- TRUE
 ```
 
 
 ## P_in 
 
 ```{r plot_pin}
-interactive <- FALSE
-
 tigo::plot_data(data = tigo_data, param = "Pin", interactive)
 ```
 

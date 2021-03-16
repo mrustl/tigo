@@ -17,6 +17,7 @@
 #' @importFrom tidyr separate pivot_longer
 #' @import tidyselect
 #' @importFrom rlang .data
+#' @importFrom tibble as_tibble
 get_data_aggregate <- function(system_id = as.numeric(Sys.getenv("TIGO_ID")),
                                datetime_min = Sys.time() - 7*24*3600,
                                datetime_max = Sys.time(),
@@ -54,6 +55,8 @@ get_data_aggregate <- function(system_id = as.numeric(Sys.getenv("TIGO_ID")),
   }),
   nm = params),
   idcol = "param"
-  )
+  ) %>%
+  tibble::as_tibble() %>%
+  dplyr::filter(!is.na(value))
 
 }

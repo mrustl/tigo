@@ -14,14 +14,16 @@ plot_data <- function(data,
                       param = "RSSI",
                       interactive = FALSE) {
 
-  g <- tigo_data %>%
-    dplyr::filter(param == param) %>%
+  sel_para <- param
+
+  g <- data %>%
+    dplyr::filter(.data$param == sel_para) %>%
     ggplot2::ggplot(ggplot2::aes_string(x = "DATETIME",
                                         y = "value",
                                         col = "position")) +
     ggplot2::facet_wrap(~ string, ncol = 1) +
     ggplot2::geom_line() +
-    ggplot2::labs(title = param) +
+    ggplot2::labs(title = sel_para) +
     ggplot2::theme_bw()
 
   if(interactive) {
