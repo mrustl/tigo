@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • tigo</title>
+<title>Plot string sum — plot_string_sum • tigo</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Plot string sum — plot_string_sum" />
+<meta property="og:description" content="Plot string sum" />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -120,78 +121,46 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Plot string sum</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mrustl/tigo/blob/master/R/plot-string.R'><code>R/plot-string.R</code></a></small>
+    <div class="hidden name"><code>plot_string_sum.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Plot string sum</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>plot_string_sum</span><span class='op'>(</span><span class='va'>data</span>, para <span class='op'>=</span> <span class='st'>"Vin"</span>, ypara <span class='op'>=</span> <span class='st'>"sum"</span>, interactive <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="get_data_aggregate.html">get_data_aggregate()</a></code> </p>
-        </td>
-        <td><p>Get data aggregate</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_token.html">get_token()</a></code> </p>
-        </td>
-        <td><p>Get token</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_data.html">plot_data()</a></code> </p>
-        </td>
-        <td><p>Plot Tigo data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="plot_string_sum.html">plot_string_sum()</a></code> </p>
-        </td>
-        <td><p>Plot string sum</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tigo_api.html">tigo_api()</a></code> </p>
-        </td>
-        <td><p>Tigo API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="tigo_oauth.html">tigo_oauth()</a></code> </p>
-        </td>
-        <td><p>Tigo oauth endpoints</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="to_iso_datetime.html">to_iso_datetime()</a></code> </p>
-        </td>
-        <td><p>Helper function: convert to ISO datetime</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>as returned by <code><a href='get_data_aggregate.html'>get_data_aggregate</a></code></p></td>
+    </tr>
+    <tr>
+      <th>para</th>
+      <td><p>parameter to plot (default: "Vin")</p></td>
+    </tr>
+    <tr>
+      <th>ypara</th>
+      <td><p>either "sum" (for parameter selected in argument para
+or "n" (number of panels), (default: "param")</p></td>
+    </tr>
+    <tr>
+      <th>interactive</th>
+      <td><p>TRUE/FALSE</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>string sum plot</p>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
