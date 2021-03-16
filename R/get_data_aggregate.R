@@ -26,7 +26,7 @@ get_data_aggregate <- function(system_id,
 
 
     endpoint <- sprintf("%s?system_id=%d&start=%s&end=%s&level=%s&sensors=%s&param=%s&header=%s",
-                        tigo_api$data_aggregate,
+                        tigo_api()$data_aggregate,
                         system_id,
                         to_iso_datetime(datetime_min),
                         to_iso_datetime(datetime_max),
