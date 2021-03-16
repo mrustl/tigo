@@ -28,23 +28,25 @@ str(tigo_data)
 ## P_in 
 
 ```{r plot_pin}
-tigo::plot_data(data = tigo_data, param = "Pin", interactive = TRUE)
+interactive <- FALSE
+
+tigo::plot_data(data = tigo_data, param = "Pin", interactive)
 ```
 
 ## V_in 
 
 ```{r plot_vin}
-tigo::plot_data(data = tigo_data, param = "Vin", interactive = TRUE)
+tigo::plot_data(data = tigo_data, param = "Vin", interactive)
 ```
 
 ## I_in 
 
 ```{r plot_iin}
-tigo::plot_data(data = tigo_data, param = "Iin", interactive = TRUE)
+tigo::plot_data(data = tigo_data, param = "Iin", interactive)
 ```
 
 ## RSSI 
 
 ```{r plot_rssi}
-tigo::plot_data(data = tigo_data, param = "RSSI", interactive = TRUE)
+tigo::plot_data(data = tigo_data, param = "RSSI", interactive)
 ```
