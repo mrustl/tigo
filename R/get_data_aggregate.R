@@ -51,8 +51,8 @@ get_data_aggregate <- function(system_id = as.numeric(Sys.getenv("TIGO_ID")),
                           names_to = c("cca_mac", "type", "id_paramheader"),
                           names_sep = "\\.") %>%
       tidyr::separate(col = "id_paramheader", into = c("id", "paramheader")) %>%
-      dplyr::mutate(string = stringr::str_extract("id", "^[A-Z]"),
-                    position = stringr::str_extract("id", "[0-9]+?$"))
+      dplyr::mutate(string = stringr::str_extract(id, "^[A-Z]"),
+                    position = stringr::str_extract(id, "[0-9]+?$"))
   }),
   nm = params),
   idcol = "param"
