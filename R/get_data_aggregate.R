@@ -18,6 +18,7 @@
 #' @import tidyselect
 #' @importFrom rlang .data
 #' @importFrom tibble as_tibble
+#' @importFrom stats setNames
 get_data_aggregate <- function(system_id = as.numeric(Sys.getenv("TIGO_ID")),
                                datetime_min = Sys.time() - 7*24*3600,
                                datetime_max = Sys.time(),
@@ -30,7 +31,7 @@ get_data_aggregate <- function(system_id = as.numeric(Sys.getenv("TIGO_ID")),
 
 
   data.table::rbindlist(
-    setNames(lapply(params, FUN = function(param) {
+    stats::setNames(lapply(params, FUN = function(param) {
 
 
     endpoint <- sprintf("%s?system_id=%d&start=%s&end=%s&level=%s&sensors=%s&param=%s&header=%s",
@@ -50,8 +51,8 @@ get_data_aggregate <- function(system_id = as.numeric(Sys.getenv("TIGO_ID")),
                           names_to = c("cca_mac", "type", "id_paramheader"),
                           names_sep = "\\.") %>%
       tidyr::separate(col = "id_paramheader", into = c("id", "paramheader")) %>%
-      dplyr::mutate(string = stringr::str_extract(id, "^[A-Z]"),
-                    position = stringr::str_extract(id, "[0-9]+?$"))
+      dplyr::mutate(string = stringr::str_extract("id", "^[A-Z]"),
+                    position = stringr::str_extract("id", "[0-9]+?$"))
   }),
   nm = params),
   idcol = "param"

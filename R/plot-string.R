@@ -17,9 +17,9 @@ plot_string_sum <- function(data,
   label <- sprintf("%s_%s", para, ypara)
 
   g <- data %>%
-  dplyr::filter(param == para) %>%
-  dplyr::group_by(DATETIME, string) %>%
-  dplyr::summarise(sum = sum(value),
+  dplyr::filter("param" == para) %>%
+  dplyr::group_by("DATETIME", "string") %>%
+  dplyr::summarise(sum = sum("value"),
                    n = dplyr::n()) %>%
   ggplot2::ggplot(ggplot2::aes_string(x = "DATETIME",
                                       y = ypara,
