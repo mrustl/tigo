@@ -3,7 +3,7 @@
 #'
 #' @return paths to API endpoints
 #' @export
-#' @importFrom kwb.utils resolveAl
+#' @importFrom kwb.utils resolveAll
 #' @examples
 #' tigo_api()
 tigo_api <- function() {
@@ -25,9 +25,10 @@ kwb.utils::resolveAll(tigo_api_list)
 #' @importFrom httr authenticate content GET
 #' @examples
 #' \dontrun{
-#' Sys.setenv("TIGO_EMAIL" = "myemail")
-#' Sys.setenv("TIGO_PW = "mypw")
-#' get_token()}
+#' Sys.setenv(TIGO_EMAIL = "myemail")
+#' Sys.setenv(TIGO_PW = "mypw")
+#' get_token()
+#' }
 get_token <- function() {
 
 user <- httr::GET(url = tigo_api()$login,
@@ -42,10 +43,10 @@ user$user
 
 #' Tigo oauth endpoints
 #'
-#' @param endpoint
-#' @param token
+#' @param endpoint Tigo endpoint
+#' @param token Tigo token \code{\link{get_token}}
 #'
-#' @return
+#' @return data returned from endpoint
 #' @export
 #' @importFrom httr add_headers content GET
 #' @examples

@@ -6,8 +6,7 @@
 #' @param datetime_max End datetime of data (default: Sys.time())
 #' @param level "min" (minute ) or "day" (aggregates), default: "min"
 #' @param sensors Whether to include sensor data TRUE/FALSE (default: TRUE)
-#' @param param Type of data to return ("Pin", "Vin", "Iin", "RSSI") (default:
-#' "RSSI")
+#' @param params Type of data to return (default: c("Pin", "Vin", "Iin", "RSSI"))
 #' @param header either "id" or "key" header (default: "key")
 #' @return list with data
 #' @export
