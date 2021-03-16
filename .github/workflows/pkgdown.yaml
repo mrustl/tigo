@@ -12,6 +12,9 @@ jobs:
     runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      TIGO_EMAIL: ${{ secrets.TIGO_EMAIL }}
+      TIGO_PW: ${{ secrets.TIGO_PW }}
+      TIGO_ID: ${{ secrets.TIGO_ID }}
     steps:
       - uses: actions/checkout@v2
 
