@@ -11,7 +11,7 @@
 #' @return list with data
 #' @export
 #' @importFrom stringr str_to_lower
-#'
+#' @importFrom dplyr filter
 get_data_aggregate <- function(system_id,
                                datetime_min = Sys.time() - 7*24*3600,
                                datetime_max = Sys.time(),
@@ -34,6 +34,7 @@ get_data_aggregate <- function(system_id,
                         stringr::str_to_lower(as.character(sensors)),
                         param,
                         header)
-    tigo_oauth(endpoint) })
+    tigo_oauth(endpoint) %>%
+      dplyr::filter(DATETIME != "DATETIME")})
 
 }

@@ -16,6 +16,7 @@ License: MIT + file LICENSE
 URL: https://github.com/mrustl/tigo
 BugReports: https://github.com/mrustl/tigo/issues
 Imports: 
+    dplyr,
     httr,
     kwb.utils,
     magrittr,
