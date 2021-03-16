@@ -87,6 +87,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/analysis.html">Analysis</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -121,7 +133,7 @@
     </div>
 
     <pre class="usage"><span class='fu'>get_data_aggregate</span><span class='op'>(</span>
-  <span class='va'>system_id</span>,
+  system_id <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span><span class='op'>(</span><span class='st'>"TIGO_ID"</span><span class='op'>)</span><span class='op'>)</span>,
   datetime_min <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>-</span> <span class='fl'>7</span> <span class='op'>*</span> <span class='fl'>24</span> <span class='op'>*</span> <span class='fl'>3600</span>,
   datetime_max <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span><span class='op'>(</span><span class='op'>)</span>,
   level <span class='op'>=</span> <span class='st'>"min"</span>,
@@ -136,7 +148,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>system_id</th>
-      <td><p>ID of the system (integer)</p></td>
+      <td><p>ID of the system (integer), (default: as.numeric(Sys.getenv("TIGO_ID")))</p></td>
     </tr>
     <tr>
       <th>datetime_min</th>
