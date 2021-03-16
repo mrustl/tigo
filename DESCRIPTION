@@ -13,8 +13,8 @@ Description: R Package For Accessing Tigo Energy API available
     at:
     <https://support.tigoenergy.com/hc/en-us/articles/200863027-Tigo-Energy-API>.
 License: MIT + file LICENSE
-URL: https://github.com/KWB-R/tigo
-BugReports: https://github.com/KWB-R/tigo/issues
+URL: https://github.com/mrustl/tigo
+BugReports: https://github.com/mrustl/tigo/issues
 Imports: 
     httr,
     kwb.utils,
