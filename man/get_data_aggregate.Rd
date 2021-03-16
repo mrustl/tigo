@@ -5,7 +5,7 @@
 \title{Get data aggregate}
 \usage{
 get_data_aggregate(
-  system_id,
+  system_id = as.numeric(Sys.getenv("TIGO_ID")),
   datetime_min = Sys.time() - 7 * 24 * 3600,
   datetime_max = Sys.time(),
   level = "min",
@@ -16,7 +16,7 @@ get_data_aggregate(
 )
 }
 \arguments{
-\item{system_id}{ID of the system (integer)}
+\item{system_id}{ID of the system (integer), (default: as.numeric(Sys.getenv("TIGO_ID")))}
 
 \item{datetime_min}{Start datetime of data (default: Sys.time() - 7\emph{24}3600)}
 

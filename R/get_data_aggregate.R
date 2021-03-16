@@ -1,7 +1,7 @@
 
 #' Get data aggregate
 #'
-#' @param system_id ID of the system (integer)
+#' @param system_id ID of the system (integer), (default: as.numeric(Sys.getenv("TIGO_ID")))
 #' @param datetime_min Start datetime of data (default: Sys.time() - 7*24*3600)
 #' @param datetime_max End datetime of data (default: Sys.time())
 #' @param level "min" (minute ) or "day" (aggregates), default: "min"
@@ -11,10 +11,13 @@
 #' @param tz time zone of system (default: "")
 #' @return list with data
 #' @export
+#' @importFrom data.table rbindlist
 #' @importFrom stringr str_to_lower
 #' @importFrom dplyr across filter mutate
+#' @importFrom tidyr separate pivot_longer
 #' @import tidyselect
-get_data_aggregate <- function(system_id,
+#' @importFrom rlang .data
+get_data_aggregate <- function(system_id = as.numeric(Sys.getenv("TIGO_ID")),
                                datetime_min = Sys.time() - 7*24*3600,
                                datetime_max = Sys.time(),
                                level = "min",
@@ -25,12 +28,13 @@ get_data_aggregate <- function(system_id,
 
 
 
-  lapply(params, function(param) {
+  data.table::rbindlist(
+    setNames(lapply(params, FUN = function(param) {
 
 
     endpoint <- sprintf("%s?system_id=%d&start=%s&end=%s&level=%s&sensors=%s&param=%s&header=%s",
                         tigo_api()$data_aggregate,
-                        system_id,
+                        as.numeric(system_id),
                         to_iso_datetime(datetime_min),
                         to_iso_datetime(datetime_max),
                         level,
@@ -40,7 +44,14 @@ get_data_aggregate <- function(system_id,
     tigo_oauth(endpoint) %>%
       dplyr::filter(DATETIME != "DATETIME") %>%
       dplyr::mutate(DATETIME = as.POSIXct(DATETIME, tz = tz)) %>%
-      dplyr::mutate(dplyr::across(tidyselect:::where(is.character), function(x){as.numeric(x)}))
-  })
+      dplyr::mutate(dplyr::across(tidyselect:::where(is.character), function(x){as.numeric(x)})) %>%
+      tidyr::pivot_longer(cols = -tidyselect::any_of("DATETIME"),
+                          names_to = c("cca_mac", "type", "id_paramheader"),
+                          names_sep = "\\.") %>%
+      tidyr::separate(col = "id_paramheader", into = c("id", "paramheader"))
+  }),
+  nm = params),
+  idcol = "param"
+  )
 
 }
