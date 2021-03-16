@@ -49,6 +49,7 @@ user$user
 #' @return data returned from endpoint
 #' @export
 #' @importFrom httr add_headers content GET
+#' @importFrom readr read_csv read_tsv
 #' @examples
 #' \dontrun{
 #' systems <- tigo_oauth(endpoint = tigo_api()$systems)

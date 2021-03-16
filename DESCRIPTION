@@ -21,6 +21,7 @@ Imports:
     httr,
     kwb.utils,
     magrittr,
+    readr,
     rlang,
     stringr,
     tidyr,
@@ -28,7 +29,6 @@ Imports:
 Suggests: 
     covr,
     knitr,
-    readr,
     rmarkdown
 Remotes: 
     github::kwb-r/kwb.utils
