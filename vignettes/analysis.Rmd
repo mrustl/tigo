@@ -1,6 +1,7 @@
 ---
 title: "Analysis"
 output: rmarkdown::html_vignette
+date: "`r Sys.time()`"
 vignette: >
   %\VignetteIndexEntry{Analysis}
   %\VignetteEngine{knitr::rmarkdown}
