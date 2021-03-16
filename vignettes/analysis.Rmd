@@ -49,3 +49,15 @@ tigo::plot_data(data = tigo_data, param = "Iin", interactive)
 ```{r plot_rssi}
 tigo::plot_data(data = tigo_data, param = "RSSI", interactive)
 ```
+
+## String 
+
+### Voltage 
+
+```{r plot_vin_sum}
+plot_string_sum(tigo_data)
+```
+
+```{r plot_vin_n}
+plot_string_sum(tigo_data, ypara = "n")
+```
