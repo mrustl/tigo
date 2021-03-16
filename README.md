@@ -32,6 +32,6 @@ remotes::install_github("mrustl/tigo")
 
 ## Documentation
 
-Release: [https://mrustl.github.io/tigo](https://mrustl.github.io/tigo)
+Release: [https://mrustl.de/tigo/](https://mrustl.de/tigo/)
 
-Development: [https://mrustl.github.io/tigo/dev](https://mrustl.github.io/tigo/dev)
+Development: [https://mrustl.de/tigo/dev](https://mrustl.de/tigo/dev)
