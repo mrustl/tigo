@@ -15,9 +15,16 @@ Description: R Package For Accessing Tigo Energy API available
 License: MIT + file LICENSE
 URL: https://github.com/KWB-R/tigo
 BugReports: https://github.com/KWB-R/tigo/issues
+Imports: 
+    httr,
+    kwb.utils,
+    magrittr,
+    stringr
+Suggests: 
+    covr
+Remotes: 
+    github::kwb-r/kwb.utils
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-Suggests: 
-    covr
