@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 #remotes::install_github("mrustl/tigo")
 library(tigo)
 
-datetime_min <- as.POSIXct("2021-03-15 14:30:00 CET")
+datetime_min <- Sys.time(tz = "CET") - 7 #last seven days (< 100 MB !!!)
 tigo_data <- tigo::get_data_aggregate(datetime_min = datetime_min) 
 str(tigo_data)
 
@@ -29,25 +29,25 @@ interactive <- TRUE
 
 ## P_in 
 
-```{r plot_pin}
+```{r plot_pin, fig.height=15, fig.fullwidth=TRUE}
 tigo::plot_data(data = tigo_data, param = "Pin", interactive)
 ```
 
 ## V_in 
 
-```{r plot_vin}
+```{r plot_vin, fig.height=10, fig.fullwidth=TRUE}
 tigo::plot_data(data = tigo_data, param = "Vin", interactive)
 ```
 
 ## I_in 
 
-```{r plot_iin}
+```{r plot_iin, fig.height=10, fig.fullwidth=TRUE}
 tigo::plot_data(data = tigo_data, param = "Iin", interactive)
 ```
 
 ## RSSI 
 
-```{r plot_rssi}
+```{r plot_rssi, fig.height=10, fig.fullwidth=TRUE}
 tigo::plot_data(data = tigo_data, param = "RSSI", interactive)
 ```
 
