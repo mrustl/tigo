@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 #remotes::install_github("mrustl/tigo")
 library(tigo)
 
-datetime_min <- Sys.time(tz = "CET") - 7 #last seven days (< 100 MB !!!)
+datetime_min <- Sys.time() - 7 #last seven days (< 100 MB !!!)
 tigo_data <- tigo::get_data_aggregate(datetime_min = datetime_min) 
 str(tigo_data)
 
