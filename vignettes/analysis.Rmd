@@ -56,9 +56,15 @@ tigo::plot_data(data = tigo_data, param = "RSSI", interactive)
 ### Voltage 
 
 ```{r plot_vin_sum}
-plot_string_sum(tigo_data)
+tigo::plot_string_sum(data = tigo_data)
 ```
 
 ```{r plot_vin_n}
 plot_string_sum(tigo_data, ypara = "n")
+```
+
+### Power
+
+```{r plot_pin_sum}
+tigo::plot_string_sum(data = tigo_data, para = "Pin")
 ```
